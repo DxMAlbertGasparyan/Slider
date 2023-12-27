@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+}
+.slider{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+.img_container{
+    width: 1000px;
+    height: 750px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+.img_container img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all .5s;
+    object-fit: cover;
+}
+.img_active{
+    opacity: 1 !important;
+}
+.circles{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    bottom: 150px;
+}
+.circle{
+    cursor: pointer;
+    width:30px;
+    height: 30px;
+    background-color: rgba(192,192,192, 0.2);
+    border-radius: 50%;
+}
+
+.prev{
+    position: absolute;
+    left: 25%;
+}
+.next{
+    position: absolute;
+    right: 25%;
+}
+.prev{
+    font-size: 50px;
+    color: gray;
+    padding: 20px 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(192,192,192, 0.9)
+}
+.next{
+    font-size: 50px;
+    color: gray;
+    padding: 20px 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(192,192,192, 0.9)
+}
+
+.active_circle{
+    background-color: gray;
+}
