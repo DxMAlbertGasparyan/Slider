@@ -2,8 +2,9 @@ const img = document.querySelectorAll('.slider_img');
 const circle = document.querySelectorAll('.circle');
 let circleIndex = 0;
 let imageIndex = 0;
+let interval;
 const intervalTimer = ()=>{
-    setInterval(()=>{
+    interval = setInterval(()=>{
         let index = imageIndex+1;
                 let circlelength = circle.length+1;
                 if(index>=img.length && circlelength>=circle.length-1){
@@ -31,8 +32,12 @@ buttons.forEach((button)=>{
                 index = img.length-1;
                 circlelength = circle.circlelength-1;
             }
-            show(index);
+            if(interval) {
+                clearInterval(interval);
+            }
+            intervalTimer();
 
+            show(index);
 
         }
        else if(event.currentTarget.classList.contains('next')){
@@ -42,17 +47,23 @@ buttons.forEach((button)=>{
                 index = 0;
                 circlelength=0;
             }
+            if(interval) {
+                clearInterval(interval);
+            }
+            intervalTimer();
             show(index);
-
-
         }
         
     })
 });
-// circle.forEach((button)=>{
-//         button.addEventListener('click',(event)=>{
-//            event.target
-//         })
-// })
+circle.forEach((button, index)=>{
+        button.addEventListener('click',()=>{
+            if(interval) {
+                clearInterval(interval);
+            }
+            intervalTimer();
+           show(index)
+        })
+})
 
 intervalTimer();
